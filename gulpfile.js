@@ -69,8 +69,12 @@ function check() {
     ])
     .pipe(eslint({
       configFile: './.eslintrc.json'
+      , fix: true
     }))
     .pipe(eslint.format())
+    .pipe(gulpIf(isFixed, gulp.dest('./')))
+    // uncomment to stop on error
+    //.pipe(eslint.failAfterError())
 }
 
 exports.compile = compile
