@@ -86,10 +86,10 @@ module.exports = (function(){
     }
   }
 
-  function _addWheelListener(elem, eventName, callback, isPassiveListener ) {
+  function _addWheelListener(elem, eventName, callback, isPassiveListener, onlyMouseWhell ) {
     var cb;
 
-    if (support === "wheel") {
+    if (support === "wheel" && !onlyMouseWhell) {
       cb = callback;
     } else {
       cb = createCallback(elem, callback);
@@ -113,8 +113,8 @@ module.exports = (function(){
     removeCallback(elem);
   }
 
-  function addWheelListener( elem, callback, isPassiveListener ) {
-    _addWheelListener(elem, support, callback, isPassiveListener );
+  function addWheelListener( elem, callback, isPassiveListener, onlyMouseWhell ) {
+    _addWheelListener(elem, support, callback, isPassiveListener, onlyMouseWhell );
 
     // handle MozMousePixelScroll in older Firefox
     if( support == "DOMMouseScroll" ) {

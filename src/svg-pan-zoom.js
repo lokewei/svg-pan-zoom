@@ -30,6 +30,7 @@ var optionsDefaults = {
 , customEventsHandler: null
 , eventsListenerElement: null
 , onUpdatedCTM: null
+, onlyMouseWhell: false // jusitfy if use `wheel` or `mousewheel` event
 }
 
 var passiveListenerOption = {passive: true};
@@ -194,7 +195,7 @@ SvgPanZoom.prototype.enableMouseWheelZoom = function() {
 
     // Bind wheelListener
     var isPassiveListener = !this.options.preventMouseEventsDefault
-    Wheel.on(this.options.eventsListenerElement || this.svg, this.wheelListener, isPassiveListener)
+    Wheel.on(this.options.eventsListenerElement || this.svg, this.wheelListener, isPassiveListener, that.options.onlyMouseWhell)
 
     this.options.mouseWheelZoomEnabled = true
   }

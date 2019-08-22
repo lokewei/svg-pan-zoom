@@ -1,5 +1,5 @@
 {
-  "name": "svg-pan-zoom",
+  "name": "svg-pan-zoom-m",
   "version": "3.6.0",
   "main": "dist/svg-pan-zoom.js",
   "module": "src/svg-pan-zoom.js",
